@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+ 
+{% block content %} 
+ {% for i in data %}
+ <h2>
+   <li>{{i.name}}</li>
+ </h2>
+{% endfor %}
+
+
+
+
+{% for x in types %}
+<div style="background-color: bisque;">
+  <h2>{{forloop.counter}}</h2>
+  {% for i in x %}
+  <h3>{{i.pokemon.name}}</h3>
+  {% endfor %}
+  <br/>
+</div>
+{% endfor %}
+
+ {% endblock %}
