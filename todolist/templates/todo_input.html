@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!--main part  -->
+<section class="outer">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-sm-12 col-md-8">
+        <!-- heading -->
+        <center>
+          <br />
+        </center>
+
+        <!-- tracker input -->
+        <div class="inner">
+          <div class="form-row">
+            <div class="col-8 mr-sm-2">
+              <form method="POST">
+                {% csrf_token %}
+                <h4>
+                  {{ form.as_p }}
+                </h4>
+              <!-- <label for="#addtaskinput">Task name:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Task Name"
+                name="task"
+                id="addtaskinput"
+                maxlength="15"
+              />
+              <label for="#addtaskinput">Description:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your task"
+                id="addtaskinput"
+                name="description"
+                maxlength="15"
+                style="padding-bottom: 70px;"
+
+              />
+            </div> -->
+           
+            <br />
+            <!-- buttons -->
+            <button
+              type="button"
+              id="deleteallbtn"
+              class="btn btn-md btn-danger"
+            >
+              Delete All
+            </button>
+            <button
+              type="submit"
+              class="btn btn-success btn-md mr-sm-2"
+              id="addtaskbtn"
+            >
+              Add Task
+            </button>
+            <button
+              type="button"
+              class="btn btn-success btn-md mr-sm-2"
+              id="savetaskbtn"
+              style="display: none"
+            >
+              Save Task
+            </button>
+          </div>
+        </form>
+        
+            <!-- display data -->
+            <div class="to-do-output">
+              <table class="table table-hover  table-striped  mt-3 mb-0" id="addedtasklist">
+                <thead class="table-dark">
+                  <tr class="text-center">
+                     
+               <th scope="col">#</th>   
+               <th scope="col">Task</th>   
+               <th scope="col">Description</th>   
+               <th scope="col">Date and Time</th>   
+               <!-- <th scope="col" class="tConsumed"><span style="color: darkorange;">OverAll Time:&nbsp;<span class="timeRecord" >00</span></span></th> -->
+              
+               </tr>
+               <tbody class="table-success">
+                 {% for x in display %}
+                 <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{x.task}}</td>
+              <td>{{x.description}}</td>
+              <td>{{x.time}}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+              </table>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
